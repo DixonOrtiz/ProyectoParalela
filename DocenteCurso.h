@@ -11,5 +11,9 @@ class DocenteCurso{
         DocenteCurso(std::string, int, int);
         ~DocenteCurso();
         void mostrarDatos();
-
+        bool esINF();
+        int retornaBloquesDisponibles();
+        void restaBloquesDisponibles();
+        std::string retornaIdentificador();
+        int retornaIdDocente();
 };

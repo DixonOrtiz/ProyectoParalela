@@ -16,3 +16,14 @@ void HorarioSala::mostrarDatos(){
     cout << "Matriz horario: " << endl;
     mostrarMatrizHorario(this->matriz_horario);
 }
+
+vector<vector<string>> HorarioSala::retornaMatrizHorario(){
+    return this->matriz_horario;
+}
+
+void HorarioSala::llenarBloque(string identificadorDocente, int bloque, int dia){
+    if(this->matriz_horario[bloque][dia] == "Disponible"){
+        this->matriz_horario[bloque][dia] = identificadorDocente;
+    }
+
+}

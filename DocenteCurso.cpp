@@ -17,3 +17,34 @@ void DocenteCurso::mostrarDatos(){
     cout << "Id docente: " << this->id_docente << endl;
     cout << "Bloques disponiles: " << this->bloques_disponibles << endl;
 }
+
+bool DocenteCurso::esINF(){
+    string primerosTresChar = "";
+    bool esINF = false;
+    for(int i = 0; i < 3; i++){
+        primerosTresChar += this->codigo_curso[i];
+    }
+
+    if(primerosTresChar == "INF")
+        esINF = true;
+
+    return esINF;
+}
+
+int DocenteCurso::retornaBloquesDisponibles(){
+    return this->bloques_disponibles; 
+}
+
+void DocenteCurso::restaBloquesDisponibles(){
+    if(this->bloques_disponibles > 0)
+        this->bloques_disponibles--;
+}
+
+string DocenteCurso::retornaIdentificador(){
+    string identificador = this->codigo_curso + "-" + to_string(this->id_docente);
+    return identificador;
+}
+
+int DocenteCurso::retornaIdDocente(){
+    return this->id_docente;
+}

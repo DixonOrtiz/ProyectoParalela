@@ -13,4 +13,6 @@ class HorarioSala{
         HorarioSala(string, vector<vector<string>>);
         ~HorarioSala();
         void mostrarDatos();
+        vector<vector<string>> retornaMatrizHorario();
+        void llenarBloque(string, int, int);
 };

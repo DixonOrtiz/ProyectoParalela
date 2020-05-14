@@ -362,4 +362,45 @@ vector<HorarioSala> llenarVectorHorarioSala(){
 
 }
 
+bool hayCuatroBloquesSeguidos(string identificadorDocente, int bloque, int dia, vector<vector<string>> matrizHorario){
+    bool hayCuatroBloques = false;
+    
 
+    if(bloque > 3){
+        int contadorBloques = 0;
+        for(int i = bloque - 4; i < bloque; i++){
+            if(matrizHorario[i][dia] == identificadorDocente){
+                contadorBloques++;
+            }
+        }
+
+        if(contadorBloques == 4)
+            hayCuatroBloques  = true;
+        else
+            hayCuatroBloques  = false;
+    }
+
+
+    
+
+    return hayCuatroBloques;
+    
+}
+
+vector<vector<bool>> retornaMatrizPorDocente(vector<DisponibilidadHoraria> vectorDisponibilidad, int id_docente){
+    for(int i = 0; i < vectorDisponibilidad.size(); i++){
+        if(vectorDisponibilidad[i].retornaIdDocente() == id_docente)
+            return vectorDisponibilidad[i].retornaMatrizDisponiblidad();
+    }
+}
+
+bool tieneDisponibilidad(int bloque, int dia, vector<vector<bool>> matrizDisponibilidad){
+    bool tieneDisponibilidad;
+
+    if(matrizDisponibilidad[bloque][dia] == 1)
+        tieneDisponibilidad = true;
+    else
+        tieneDisponibilidad = false;
+
+    return tieneDisponibilidad;
+}
